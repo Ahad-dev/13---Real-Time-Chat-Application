@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -10,12 +11,16 @@ import userRoutes from './routes/user.route.js';
 import connectDB from './db/connectDB.js';
 
 
-const app = express();
+import {app,httpServer} from './socket/socket.js'
 
 // Connect to MongoDB
 connectDB();
 
 // Middleware
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
 app.use(express.json()); // Work: Parse JSON bodies (as sent by API clients)
 app.use(cookieParser()); // Work: Parse cookies from the request headers
 
@@ -26,6 +31,6 @@ app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+httpServer.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
 
 

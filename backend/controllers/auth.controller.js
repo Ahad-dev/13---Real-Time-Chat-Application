@@ -81,3 +81,17 @@ export const logout = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
+export const checkAuth = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id
+        );
+        if (!user) {
+            return res.status(401).json({ success: false, message: "Unauthorized" });
+        }
+        res.status(200).json({ success: true, user: { ...user._doc, password: undefined } });
+    }
+    catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+  };
