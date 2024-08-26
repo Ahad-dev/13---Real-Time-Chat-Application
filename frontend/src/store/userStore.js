@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {create} from 'zustand';
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "chatty-backend-ruddy.vercel.app/api/users";
 
 const useUser = create((set)=>({
     getAllUsers: async ()=>{

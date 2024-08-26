@@ -9,7 +9,7 @@ const useGetMessages = () => {
     const getMessages = async () => {
       setLoading(true);
       const res = await axios.get(
-        `http://localhost:5000/api/messages/${selectedConversation._id}`
+        `chatty-backend-ruddy.vercel.app/api/messages/${selectedConversation._id}`
       );
       if (res.data.success) {
         setMessages(res.data.messages);
