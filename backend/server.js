@@ -18,9 +18,12 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: 'https://chatty-app-theta.vercel.app', // Work: true for all origins
-    credentials: true
+    origin: 'https://advance-auth-neon.vercel.app', // Only allow requests from this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true, // Enable cookies
 }));
+app.options('*', cors());
 app.use(express.json()); // Work: Parse JSON bodies (as sent by API clients)
 app.use(cookieParser()); // Work: Parse cookies from the request headers
 
