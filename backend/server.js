@@ -18,7 +18,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'ChatyApp.vercel.app', // Work: true for all origins
     credentials: true
 }));
 app.use(express.json()); // Work: Parse JSON bodies (as sent by API clients)
