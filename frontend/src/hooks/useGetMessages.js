@@ -9,7 +9,7 @@ const useGetMessages = () => {
     const getMessages = async () => {
       setLoading(true);
       const res = await axios.get(
-        `https://chatty-backend-ruddy.vercel.app/api/messages/${selectedConversation._id}`
+        `https://chatty-backend-gold.vercel.app/api/messages/${selectedConversation._id}`
       );
       if (res.data.success) {
         setMessages(res.data.messages);

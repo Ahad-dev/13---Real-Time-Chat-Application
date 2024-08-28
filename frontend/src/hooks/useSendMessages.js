@@ -10,7 +10,7 @@ const useSendMessages = ()=>{
 
     const sendMessage = async(message)=>{
         setLoading(true);
-        const res = await axios.post(`https://chatty-backend-ruddy.vercel.app/api/messages/send/${selectedConversation._id}`,{message});
+        const res = await axios.post(`https://chatty-backend-gold.vercel.app/api/messages/send/${selectedConversation._id}`,{message});
         if(res.data.success){
             setMessages([...messages,res.data.message]);
         }

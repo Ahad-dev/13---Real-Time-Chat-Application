@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "https://chatty-backend-ruddy.vercel.app";
+const API_URL = "https://chatty-backend-gold.vercel.app";
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set) => ({
