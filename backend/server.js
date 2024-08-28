@@ -13,8 +13,7 @@ import connectDB from './db/connectDB.js';
 
 import {app,httpServer} from './socket/socket.js'
 
-// Connect to MongoDB
-connectDB();
+
 
 // Middleware
 app.use(cors({
@@ -24,6 +23,9 @@ app.use(cors({
 app.options('*', cors());
 app.use(express.json()); // Work: Parse JSON bodies (as sent by API clients)
 app.use(cookieParser()); // Work: Parse cookies from the request headers
+
+// Connect to MongoDB
+connectDB();
 
 // Routes
 app.use('/api/auth', authRoutes);
